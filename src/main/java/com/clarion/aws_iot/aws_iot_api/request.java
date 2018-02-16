@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
+import com.amazonaws.services.cognitoidp.model.CreateGroupRequest;
 import com.amazonaws.services.iot.model.AttachPolicyRequest;
 import com.amazonaws.services.iot.model.AttachThingPrincipalRequest;
 import com.amazonaws.services.iot.model.AttributePayload;
@@ -12,6 +13,7 @@ import com.amazonaws.services.iot.model.CreatePolicyRequest;
 import com.amazonaws.services.iot.model.CreateThingRequest;
 import com.amazonaws.services.iot.model.CreateThingTypeRequest;
 import com.amazonaws.services.iot.model.ListThingsRequest;
+import com.amazonaws.services.iot.model.ThingTypeProperties;
 import com.amazonaws.services.iotdata.model.GetThingShadowRequest;
 import com.amazonaws.services.iotdata.model.UpdateThingShadowRequest;
 
@@ -38,6 +40,13 @@ public class request {
 		CreateThingTypeRequest requestCreateThingType = new CreateThingTypeRequest();
       	requestCreateThingType.setThingTypeName(thingTypeName);
       	return requestCreateThingType;
+	}
+	
+	public CreateGroupRequest createGroupRequest(String groupName,String description){
+		CreateGroupRequest requestCreateGroup = new CreateGroupRequest();
+		requestCreateGroup.setGroupName(groupName);
+		requestCreateGroup.setDescription(description);
+      	return requestCreateGroup;
 	}
 	
 	public CreateKeysAndCertificateRequest createCertificateRequest(boolean setAsActive){

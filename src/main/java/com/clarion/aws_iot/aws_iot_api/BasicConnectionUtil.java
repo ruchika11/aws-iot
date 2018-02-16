@@ -4,11 +4,16 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
+import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.iot.AWSIotClient;
 import com.amazonaws.services.iot.client.AWSIotMqttClient;
 import com.amazonaws.services.iotdata.AWSIotDataClient;
+
 
 public class BasicConnectionUtil {
 	
@@ -26,6 +31,13 @@ public class BasicConnectionUtil {
     	 com.amazonaws.regions.Region usEast2 = com.amazonaws.regions.Region.getRegion(Regions.US_EAST_2);
     	 iotClient.setRegion(usEast2);
     	 return iotClient;
+	}
+	
+	public static AmazonDynamoDB initIotDynemoDbClientUsingAccessKeyAndSecretKey(){
+		AWSCredentialsProvider awsCreds = new AWSStaticCredentialsProvider(new BasicAWSCredentials(access_key_id, secret_access_key));
+		AmazonDynamoDB dynamoDbClient = AmazonDynamoDBClientBuilder.standard().withCredentials(awsCreds).withRegion(Regions.US_EAST_2)
+		.build();	
+		return dynamoDbClient;
 	}
 	
 	public static AWSIotDataClient initIotDataClientUsingAccessKeyAndSecretKey(){

@@ -1,9 +1,9 @@
 package com.clarion.aws_iot.aws_iot_api;
 
 public class credentials {
-	 public static final String access_key_id= "AKIAI3B7VXZVBT2LULXA";
+	 public static final String access_key_id= "AKIAJQLD3TUQESBXFMWA";
 
-	 public static final String secret_access_key ="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";
+	 public static final String secret_access_key ="jSLhYJ72abQDt2Nm9zrSWg+a2eD6kOqqZCT21oxL";
 	 
 	 public static final String clientId = "sdk-java";
 	 

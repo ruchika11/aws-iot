@@ -1,21 +1,15 @@
 package com.clarion.aws_iot.aws_iot_api;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.Writer;
 import java.math.BigInteger;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.security.GeneralSecurityException;
-import java.security.KeyFactory;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -25,11 +19,7 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
-import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.List;
-
-import javax.xml.bind.DatatypeConverter;
 
 
 
@@ -102,6 +92,7 @@ public class util {
         KeyStore keyStore;
         String keyPassword;
         try {
+//        	keyStore = KeyStore.getInstance("PKCS12");
             keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null);
 
